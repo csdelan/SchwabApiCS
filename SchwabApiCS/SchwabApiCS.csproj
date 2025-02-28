@@ -17,4 +17,8 @@
     <PackageReference Include="WebSocket4Net" Version="0.15.2" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y /D &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(SolutionDir)\..\output\&quot;&#xD;&#xA;xcopy /Y /D &quot;$(TargetDir)$(AssemblyName).pdb&quot; &quot;$(SolutionDir)\..\output\&quot;" />
+  </Target>
+
 </Project>
